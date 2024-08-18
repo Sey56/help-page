@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="sidebar" id="sidebar">
+        <div class="collapsible">
+            <a href="javascript:void(0)" onclick="showContent('introduction', this)" class="active">Introduction</a>
+        </div>
+        <div class="collapsible">
+            <a href="javascript:void(0)" onclick="showContent('system-requirements', this)">System Requirements</a>
+        </div>
+        <div class="collapsible">
+            <a href="javascript:void(0)" onclick="showContent('installation', this)">Installation</a>
+        </div>
+        <div class="collapsible">
+            <a href="javascript:void(0)" onclick="toggleContent('syncad-content', this); showContent('syncad', this)">
+                <span class="toggle-sign">+</span> SynCad Tool
+            </a>
+            <div id="syncad-content" class="nested-content">
+                <a href="javascript:void(0)" onclick="toggleContent('preparing-cad-content', this); showContent('preparing-cad', this)">
+                    <span class="toggle-sign">+</span> Preparing Your CAD Floor Plan
+                </a>
+                <div id="preparing-cad-content" class="nested-content">
+                    <a href="javascript:void(0)" onclick="showContent('organize-layers', this)">Organize your floor plan by layers</a>
+                    <a href="javascript:void(0)" onclick="showContent('prefix-layers', this)">Prefix layer names with Revit Category names</a>
+                </div>
+                <a href="javascript:void(0)" onclick="toggleContent('object-representation-content'); showContent('object-representation', this)">
+                    <span class="toggle-sign">+</span> Object Representation
+                </a>
+                <div id="object-representation-content" class="nested-content">
+                    <a href="javascript:void(0)" onclick="showContent('walls', this)">Walls</a>
+                    <a href="javascript:void(0)" onclick="showContent('doors', this)">Doors</a>
+                    <a href="javascript:void(0)" onclick="showContent('windows', this)">Windows</a>
+                    <a href="javascript:void(0)" onclick="showContent('columns', this)">Columns</a>
+                    <a href="javascript:void(0)" onclick="showContent('beams-grids', this)">Beams and Grids</a>
+                </div>
+                <a href="javascript:void(0)" onclick="showContent('linking-file', this)">Linking Your File</a>
+                <a href="javascript:void(0)" onclick="showContent('getting-started', this)">Getting Started</a>
+            </div>
+        </div>
+        <div class="collapsible">
+            <a href="javascript:void(0)" onclick="toggleContent('offsetmax-content'); showContent('offsetmax', this)">
+                <span class="toggle-sign">+</span>OffsetMax Tool
+            </a>
+            <div id="offsetmax-content" class="nested-content">
+                <a href="javascript:void(0)" onclick="showContent('select-walls', this)">Wall Selection Options</a>
+                <a href="javascript:void(0)" onclick="showContent('offset-options', this)">Offset Options</a>
+                <a href="javascript:void(0)" onclick="showContent('bore-options', this)">Bore Options</a>
+                <a href="javascript:void(0)" onclick="showContent('offsetmax-examples', this)">OffsetMax Examples</a>
+            </div>
+        </div>
+        <a href="javascript:void(0)" onclick="showContent('support', this)">Support and Contact</a>
+    </div>
+    
+
+    <div class="content" id="content">
+        <section id="introduction" class="active">
+            <h2>Introduction</h2>
+            <p>Codarch is a comprehensive project aimed at developing a suite of tools to enhance and streamline the Revit workflow. Currently, Codarch includes two major tools: <strong>SynCad</strong> and <strong>OffsetMax</strong>, with plans to expand and introduce more tools in the future.</p>
+            <h2>SynCad</h2>
+            <p>SynCad automates the creation of Revit elements from AutoCAD floor plans by leveraging the layer names of AutoCAD objects. This tool streamlines the transition from AutoCAD to Revit, allowing architects to convert their drawings into Revit elements quickly and efficiently. By automating this process, SynCad reduces the time spent on manual tracing, enabling architects to focus more on design. Currently, it converts Walls, Doors, Windows, Columns, Grids, and Beams, with plans to support more Revit categories in future releases.</p>
+            <h2>OffsetMax</h2>
+            <p>OffsetMax adjusts wall top offsets to slabs and beams one level above its base level. OffsetMax modifies wall top offsets to align with slabs and beams, ensuring accurate volume estimation. If walls intersect with beams perpendicularly, you have the option to bore the walls so the beams can pass without overlapping. All in all the tool's main objective is to achieve clean intersections - which will result in accurate schedules and estimations.</p>
+            <p>Codarch is committed to enhancing the Revit workflow by providing tools that save time, reduce manual effort, and improve design accuracy. With SynCad and OffsetMax, architects and designers can focus on creating innovative and impactful designs. Stay tuned for more tools and updates from Codarch!</p>
+        </section>
+        <section id="system-requirements">
+            <h2>System Requirements</h2>
+            <p>To ensure smooth operation of the Codarch tools, your system should meet the following requirements:</p>
+            <ul>
+                <li><strong>Software</strong>: Autodesk Revit 2025. Please note that Codarch is currently compatible with Revit 2025 only. Future updates will extend compatibility to Revit 2024, 2023, 2022, and 2021.</li>
+                <li><strong>Architecture</strong>: As Revit 2025 is a 64-bit application, a 64-bit operating system is required to run the add-in.</li>
+            </ul>
+            <p>Please ensure that your system meets these requirements before installing the Codarch add-in. This will help to avoid any potential issues and ensure the add-in functions as intended.</p>
+            
+        </section>
+        <section id="installation">
+            <h2>Installation</h2>
+            <p>Standard text</p>
+        </section>
+        <section id="syncad">
+            <h2>SynCad</h2>
+            <p>SynCad needs a proper layer-organized AutoCAD (dwg) floor plan in order to do its job. The output of the automation process (i.e. your Revit model you get using the SynCad tool) is only as good as your layer naming, proper representation of the various elements in the dwg and the precision of your drawing.</p>
+        </section>
+        <section id="preparing-cad">
+            <h2>Preparing Your CAD Floor Plan</h2>
+            <p>To better understand how the tool works in no time, start with a very simple floor plan. You can also download <a href="downloads/CodarchTest.dwg" download>CodarchTest.dwg</a> file which is already setup properly. You can use it to experiment with the SynCad tool. Alternatively you can open your own floor plan dwg file in AutoCAD and make sure your AutoCAD floor plan objects are organized by layer names and that the layer names are prefixed with Revit category names. 
+            </p>
+        </section>
+        <section id="organize-layers">
+            <h2>Organize your floor plan by layers</h2>
+            <p>You can’t use the SynCad tool if your floor plan dwg is not properly organized by layers.</p>
+            <p>Every element you want to see created separately in Revit must have a unique layer name in the AutoCAD file.</p>
+        </section>
+        <section id="prefix-layers">
+            <h2>Prefix layer names with Revit Category names</h2>
+            <p>Currently available category names are Walls, Windows, Doors, Columns and Beams.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Assumed Existing Layer Names</th>
+                        <th>Layer Names After Prefixed with Category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>20cmBrickExterior</td>
+                        <td>Walls_20cmBrickExterior</td>
+                    </tr>
+                    <tr>
+                        <td>15cmInteriorHCB</td>
+                        <td>Walls_15cmInteriorHCB</td>
+                    </tr>
+                    <tr>
+                        <td>70cmToiletsDoor</td>
+                        <td>Doors_70cmToiletsDoor</td>
+                    </tr>
+                    <tr>
+                        <td>90cmDoor</td>
+                        <td>Doors_90cmDoor</td>
+                    </tr>
+                    <tr>
+                        <td>120cmBedRoomWin</td>
+                        <td>Windows_120cmBedRoomWin</td>
+                    </tr>
+                    <tr>
+                        <td>150cmBedRoomWin</td>
+                        <td>Windows_150cmBedRoomWin</td>
+                    </tr>
+                    <tr>
+                        <td>70cmTopWin</td>
+                        <td>Windows_70cmTopWin</td>
+                    </tr>
+                    <tr>
+                        <td>30x40cmStrColumn</td>
+                        <td>Columns_30x40cmStrColumn</td>
+                    </tr>
+                    <tr>
+                        <td>S_GRID</td>
+                        <td>Beams_S_GRID</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>NB</strong>: the axis lines layer name is what you prefix with Beams_. This will enable the addin create Grids and Beams in Revit at the same time.</p>
+            <p>You can name your layers in whatever naming style you like but don’t forget to prefix them with Revit category names (i.e, Walls_, Doors_, Windows, Columns_ and Beams_). The category names are how the addin identifies what category the object belongs to and how to process it.</p>
+        </section>
+        <section id="object-representation">
+            <h2>Object Representation</h2>
+            <p>Every architectural studio has its own standard or rules for representing the various elements in AutoCAD drawing. Worse, every individual architect or draftsperson may use different styles and rules for representing objects in AutoCAD drawing. This makes it difficult to find an all encompassing standard that we can use to communicate among studios and individual professionals alike. For this reason this addin doesn't adhere to any standard, instead it uses very simple rules for representing AutoCAD objects for the various elements</p>
+        </section>
+        <section id="walls">
+            <h2>Walls</h2>
+            <p>Walls are represented by a pair of parallel lines the wall’s width apart. You can’t use single lines to represent walls and use SynCad tool to convert them to Revit walls.
+                All walls of the same layer can’t have different widths. Make sure that every wall in the same layer has the same width. This means you can’t have wall lines that are 15cm wide and 20 cm wide within the same “Walls_20cmExteriorBrick” layer name – all widths must be the same</p>
+                <img src="images/Walls.png" alt="Wall Representation" width="300" class="left-aligned">
+                <img src="images/Walls2.png" alt="Door Representation" width="300" class="right-aligned">
+                <p>In the image to the left all 15cm apart lines are of the same layer and all 20cm apart lines are of another layer. This is correct because all the same layer lines have the same gap (i.e wall's width). To the right all lines are of the same layer but they have different gaps. That is not allowed in SynCad because all lines of the same layer are assumed to have the same gap(i.e. the same wall width)</p>
+
+        </section>
+        <section id="doors">
+            <h2>Doors</h2>
+            <p>For SynCad tool to create doors properly the CAD file must represent doors at least with two objects -  a line that represents the leaf and an arc that represent the swing.</p>
+            <p><strong>NB</strong>: The Swing must be a quadrant (i.e quarter of a circle or 90 degrees arc)</p>
+
+            <img src="images/Doors.png" alt="Door Representation" width="300" class="left-aligned">
+            <ul class="door-list">
+                <li>The Leaf and the Swing are what SynCad uses to create the Revit doors. So make sure:</li>
+                <li>The door is aligned to the interior side of the wall.</li>
+                <li>You can use AutoCAD blocks to make the doors. Make sure all objects inside the block are of the same layer too.</li>
+                <li>Arcs above or below 90 degrees are not considered as door swings so make sure your swings are exactly quarter of a circle.</li>
+            </ul>
+            
+
+
+        </section>
+        <section id="windows">
+            <h2>Windows</h2>
+            <p>You can use a rectangle or two parallel lines to represent a window.
+                You can decorate your CAD windows however you like but what the SynCad addin needs are the two outer most lines in the wall opening for the window. See picture below.</p><br>
+                <img src="images/Windows.png" alt="Window Representation" width="500" class="center-aligned">
+            <p>If you have lines that represent frames, glass and other parts of a window, just leave the layer names as they are and make a new layer name which is prefixed with “Windows_” and add the rectangle (or the two parallel lines that represent the window) to the new layer.</p>
+        </section>
+        <section id="columns">
+            <h2>Columns</h2>
+            <p>You can represent your AutoCAD Columns with four connected lines or just a rectangle.</p>
+            <br>
+            <img src="images/Columns.png" alt="Column Representation" width="300" class="center-aligned">
+            <br><br>
+            <p>Currently only rectangular columns are allowed.</p>
+            <p><strong>NB</strong>: in terms of SynCad tool "Columns" is to mean a structural column and not an architectural column</p>
+        </section>
+        <section id="beams-grids">
+            <h2>Beams and Grids</h2>
+            <p>SynCad creates both Grids and Beams from the same AutoCAD axis lines. This is because we usually don’t have beam layers in AutoCAD Architectural drawing. So SynCad uses the axis lines to also create the Beams.</p>
+            <img src="images/GridsAndBeams.png" alt="BeamsGrids Representation" width="300" class="center-aligned">
+            <p>SynCad creates beams and grids only if they are parallel and perpendicular as seen in the picture. It only creates one set of parallel and perpendicular grids and beams.</p>
+            <p>If you have other set of parallel grids in the same file, they wont’t be created. This limitation will be handled in future releases. Also the addin’s ability to make non parallel and radial grids will be incorporated in future releases.</p>
+            <p>Save your file after you make the necessary adjustments by organizing your layers, prefixing them with Revit Category names and represent them correctly as explained above.</p>
+            <p><strong>NB</strong>: It is advisable to work on a copy of your original file, and remove layers like hatches, dimensions, furniture, etc… to make the process easier for testing purposes.</p>
+        </section>
+        <section id="linking-file">
+            <h2>Linking Your File</h2>
+            <p>If you know how to link CAD file to Revit, just link your file and skip this section and go to the <em>Getting Started</em> section.</p>
+            <p>In Revit 2025 click the “Manage” tab and then click the “Manage Links” button. In the dialog that shows up click the “CAD Formats” tab. To the bottom right of the same dialog find the “Add” button and click on it.  In the file explorer that comes, navigate to the place where you saved the “CodeArchTest.dwg” file and select it. You can set the options before you click “Open” in the file explorer. I used “Auto - Origin to Internal Origin” for <em>Positioning</em> and “Level : Level 1” for <em>Place at</em>.</p>
+            <img src="images/ManageTab.png" alt="Manage tab and ManageLinks button" width="600" class="center-aligned">
+            <p><strong>Manage</strong> tab and <strong>Manage Links</strong> button</p>
+            <br>
+            <img src="images/CADFormats.png" alt="CAD Formats tab in ManageLinks dialog" width="400" class="center-aligned">
+            <p>CAD Formats tab in the Manage Links dialog</p> <br>
+            <img src="images/AddButton.png" alt="Add button for CAD Formats" width="400" class="center-aligned">
+            <p>The Add button for CAD Formats</p><br>
+            <img src="images/LinkOptions.png" alt="File explorer LinkOptions" width="800" class="center-aligned">
+            <p>After you have selected your CAD floor plan and set the options, click “Open” in the file explorer and then “Ok” in the Manage Links dialog. Now you have successfully linked your test CAD floor plan to Revit.</p>
+
+        </section>
+        <section id="getting-started">
+            <h2>Getting Started</h2>
+            <p>First download both <a href="downloads/CodarchTest.dwg" download>CodarchTest.dwg</a> and <a href="downloads/CodarchTest.rvt" download>CodarchTest.rvt</a> test files.
+                <em>CodarchTest.rvt</em> is a Revit 2025 project file which you can use to test the conversion of <em>CodarchTest.dwg</em> AutoCAD file to Revit elements. The CodeArchTest.rvt can help you in experimenting with the SynCad tool because it contains the Revit types needed for the objects in the CodeArchTest.dwg. So by downloading both of them, and then linking the CodeArchTest.dwg file into the CodarchTest.rvt project file, You can immediately test the SynCad tool without needing to prepare your own files.</p>
+                <p>Assuming you have downloaded both of the test files, lets proceed!</p>
+                <p><strong>A</strong> => Open Autodesk Revit 2025. Then open the CodarchTest.rvt project file. check if “Codarch” is present among the tabs in the Revit UI before you proceed. The tab contains two panels - “SynCad” and “OffsetMax” each containing a button with the same name as its host tab</p>
+                <img src="images/Codarch tab.png" alt="Codarch tab" width="600" class="center-aligned">
+                <p>The <em>Codarch</em> tab</p><br>
+                <img src="images/Codarch panels.png" alt="Codarch panels" width="600" class="center-aligned">
+                <p>The <em>SynCad</em> and <em>OffsetMax</em> panels under Codarch tab</p><br>
+                <p><strong>B</strong> => Link the CodarchTest.dwg to Level 1, or any other level. And click on the SynCad button to open the SynCad tool.</p>
+                <img src="images/SynCadTool.png" alt="Codarch tab" width="800" class="center-aligned">
+                <p>Clicking on the SynCad button opens the SynCad tool's UI</p><br>
+                <p><strong>C</strong> => The circular 1 and 2 labels are steps you have to follow. Step 2 is disabled until you perform step 1. So for step 1 click the Link button and select/pick your link instance from the scene. When you do so the file name is shown next to the button and step 2 is enabled for selection.</p><br>
+                <img src="images/PickLinkButton.png" alt="Codarch tab" width="800" class="center-aligned">
+                <p>When you pick a link the file name is displayed next to the button and <em>step 2</em> is enabled</p><br>
+                <img src="images/SelectLevel.png" alt="Codarch tab" width="800" class="center-aligned"><br>
+                <p><strong>D</strong> =>Select a base level from the combobox(step 2 in the UI). A new “AddLayer” button will appear with a “+” label.</p><br>
+                <img src="images/AddLayerButton.png" alt="Codarch tab" width="800" class="center-aligned">
+                <p><strong>E</strong> =>Click the “AddLayer” button. It is the button with “+” symbol on it.</p><br>
+                <img src="images/LayerRow.png" alt="Codarch tab" width="800" class="center-aligned"><br>
+                <p><strong>F</strong> => Now setup the added layer by selecting from a <em>Category</em>, a <em>Layer</em> and a <em>Type</em>. (i.e Set the layer's "Category Name", "Layer Name", and "Revit Type")</p>
+                <img src="images/SetupLayer.png" alt="Codarch tab" width="800" class="center-aligned"><br>
+                <p>Setting up a layer</p><br>
+                <img src="images/CreateButton.png" alt="Codarch tab" width="800" class="center-aligned"><br>
+                <p>As soon as you finish setting up the first layer the "Create Revit Elements" button appears.</p><br>
+                <p><strong>G</strong> =>Finally create Revit elements by clicking on the “Create Revit Elements” button or you can keep on adding other layers by clicking on the plus button (Add Layer button) to add them all to the list and, set their properties and then create them at once. To remove layers click on the “-” button next to each layer</p>
+                <img src="images/CreateElements.png" alt="Codarch tab" width="800" class="center-aligned"><br>
+
+        </section>
+        <section id="offsetmax">
+            <h2>OffsetMax Tool</h2>
+            <p>The second tool in this release of the Codarch is the “OffsetMax”. It is under the same tab “Codarch” and is on the “OffsetMax” panel as a button with the same name as its panel.</p>
+            <img src="images/BeamBoreWallsBefore.png" alt="Codarch tab" width="600" class="center-aligned">
+            <p>Walls crossing beams perpendicularly can be made to have openings using the OffsetMax tool. see picture below for the result of using the OffsetMax's Bore Walls option.</p> <br>
+            <img src="images/BeamsBoreWallsAfter.png" alt="Codarch tab" width="600" class="center-aligned">
+            <p>Using the Bore Walls option in the OffsetMax tool bores the walls so that the beams can pass without overlapping. (Beams are hidden to see the resulting holes on the walls)</p> <br>
+
+            <p>To understand why the OffsetMax was needed in the first place, we must refresh our memory on how the SynCad tool works. The SynCad tool prompts the user to select a base level only. The top level for the element being created is determined by the SynCad tool itself and is one level above the element's base level. For example, if you have selected Level 1 in step 2, SynCad considers that as the base level for the elements and determines Level 2 to be their top level. For this reason walls created at Level 1 overlap with beams and slabs at Level 2. this is where the OffsetMax tool comes in handy. It adjusts a wall’s top offset from beams and slabs that are one level above the wall’s base level. It also bore walls to make beams pass through them without overlapping - if those beams are crossing the walls perpendicularly.</p>
+            <p>Although OffsetMax was developed having in mind the SynCad tool, it is by no means dependent on the SynCad tool. You can use it to achieve clean intersections for your other projects that weren't created using the SynCad tool - because its operations, unlike the SynCad tool, are not based on AutoCAD floor plan objects - instead are based on Revit elements (i.e. Walls, Beams and Slabs)</p>
+            <img src="images/OffsetMaxUI.png" alt="Codarch tab" width="600" class="center-aligned"><br>
+            <p>Clicking on the "OffsetMax" button on the "OffsetMax" panel opens the OffsetMax UI.</p>
+
+        </section>
+        <section id="select-walls">
+            <h2>Wall Selection Options</h2>
+            <img src="images/WallSelectionOptions.png" alt="Codarch tab" width="400" class="center-aligned"><br>
+
+            <p>The OffsetMax tool needs to select walls to adjust their top offsets or to bore them by reading their intersections with beams and slabs one level above their base level. For selecting walls we have two options - <em>All walls at a specific level</em> or <em>All walls in the project</em>. By default the "Walls at a level" is selected. </p>
+
+            <p>If you want to proceed with the default wall selection, you need to select a level. It means the OffsetMax tool will select all walls that have their base level as the Level you selected.</p>
+
+            <p>If you want to operate on all walls in the project, select the <em>All Walls</em> Options.</p>
+        </section>
+        <section id="offset-options">
+            <h2>Offset Options</h2>
+            <p>To adjust wall top offsets and bore them, the OffsetMax can operate on Beams only, on Slabs only, or on both at the same time. For that you can check/select the "Offset to Slabs", the "Offset to Beams", or Both.</p>
+            <img src="images/OffsetOptions.png" alt="Codarch tab" width="400" class="center-aligned"><br>
+
+        </section>
+        <section id="bore-options">
+            <h2>Bore Options</h2>
+            <p>If your walls are intersecting beams perpendicularly, the OffsetMax can bore the walls (make holes), so the beams can pass without overlapping. For that you need to check/select the "Bore Walls" option.</p>
+            <img src="images/BoreOptions.png" alt="Codarch tab" width="400" class="center-aligned"><br>
+
+        </section>
+
+        <section id="offsetmax-examples">
+            <h2>OffsetMax Examples</h2>
+            <p>In this section, we provide examples to help you understand how to use the OffsetMax tool effectively. These examples will guide you through different scenarios and demonstrate the tool's capabilities.</p>
+            
+            <h3>Example 1: Offset to Beams</h3>
+            <img src="images/OffsetToBeamsBefore.png" alt="Example 1 Before" width="800" class="center-aligned"><br>
+            <p>In the picture above, the walls are overlapping with the beams one level above them. We will use the OffsetMax tool to adjust them so their top face aligns with the bottom faces of the beams and avoid any intersections.</p>
+            
+            <ol>
+                <li>Select the walls you want to adjust (If you select the "All Walls" option it means all walls in the project will be processed by the OffsetMax tool).</li>
+                <li>Choose the "Offset to Beams" option.</li>
+                <li>Click "Apply" to adjust the wall top offsets.</li>
+            </ol>
+            <img src="images/OffsetToBeamsUI.png" alt="Example 1 UI" width="300" class="center-aligned"><br>
+            <img src="images/OffsetToBeamsAfter.png" alt="Example 1 After" width="800" class="center-aligned"><br>
+            <p>After applying the OffsetMax tool, top faces of the walls that are parallel and intersecting with the beams are now aligned with the bottom faces of the beams, as shown in the picture above.</p>
+        
+            <h3>Example 2: Offset to Slabs</h3>
+            <img src="images/OffsetToSlabsBefore.png" alt="Example 2 Before" width="800" class="center-aligned"><br>
+            <p>In the picture above walls are overlapping with slabs one level above them. You can see it by the artifacts on the slab.In this example, we will adjust the top offsets of walls to align with the slabs above them and achieve clean intersections. Follow these steps:</p>
+            
+            <ol>
+                <li>Select the walls you want to adjust (If you select the "All Walls" option it means all walls in the project will be processed by the OffsetMax tool).</li>
+                <li>Choose the "Offset to Slabs" option.</li>
+                <li>Click "Apply" to adjust the wall top offsets.</li>
+            </ol>
+            <img src="images/OffsetToSlabsUI.png" alt="Example 2 UI" width="300" class="center-aligned"><br>
+            <img src="images/OffsetToSlabsAfter.png" alt="Example 2 After" width="800" class="center-aligned"><br>
+            <p>After applying the OffsetMax tool, the walls' top faces are now aligned with the bottom faces of the slabs, as shown in the picture above - no artifacts.</p>
+        
+            <h3>Example 3: Bore Walls</h3>
+            <img src="images/BoreWallsBefore.png" alt="Example 3 Before" width="800" class="center-aligned"><br>
+            <p>In this picture walls that cross beams perpendicularly are overlapping with the beams.In this example, we will bore the walls to allow beams to pass through without overlapping. Follow these steps:</p>
+            
+            <ol>
+                <li>Select the walls you want to bore.</li>
+                <li>Choose the "Bore Walls" option.</li>
+                <li>Click "Apply" to create the bores in the walls.</li>
+            </ol>
+            <img src="images/BoreWallsUI.png" alt="Example 3 UI" width="300" class="center-aligned"><br>
+            <img src="images/BoreWallsAfter.png" alt="Example 3 After" width="800" class="center-aligned"><br>
+            <p>After applying the OffsetMax tool, the walls now have bores/openings to allow beams to pass through without overlapping, as shown in the picture above. (The beams are hidden so that you can see the resulting holes in the walls.)</p>
+        </section>
+        
+
+        <section id="support">
+            <h2>Support and Contact</h2>
+            <p>If you need support or have any questions, please feel free to reach out to us. You can contact us via email at <a href="mailto:your-email@gmail.com">your-email@gmail.com</a>.</p>
+            <p>For more detailed inquiries, please use the contact form on our website: <a href="https://codearch.xyz/contact" target="_blank">Contact Form</a>.</p>
+        </section>
+        
+    </div>
+
+    <footer style="background: url('images/myland.jpg') no-repeat center center; background-size: cover; position: relative; padding: 0; color: white; width: 100%; bottom: 0; left: 0;">
+        <div style="background-color: rgba(0, 0, 0, 0.5); width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 20px; box-sizing: border-box;">
+            <img src="images/Codarch-Logo.png" alt="Codarch Logo" style="height: 50px; margin-left: 10%;">
+            <p style="margin-right: 10%;">© 2024 Codarch. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
